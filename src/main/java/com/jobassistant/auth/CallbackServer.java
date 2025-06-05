@@ -1,62 +1,52 @@
 package com.jobassistant.auth;
 
 import com.jobassistant.HhAuthManager;
+import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import com.sun.net.httpserver.HttpServer;
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
+import java.net.URI;
+import java.util.concurrent.Executors;
 
 public class CallbackServer {
-
-    public static void start(HhAuthManager manager) throws IOException {
+    public static void start(HhAuthManager manager, Runnable onSuccess) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
-        server.createContext("/callback", new CallbackHandler(manager));
-        server.setExecutor(null);
+        server.createContext("/callback", new CallbackHandler(manager, server, onSuccess));
+        server.setExecutor(Executors.newSingleThreadExecutor());
         server.start();
-        System.out.println(" Callback-сервер запущен на http://localhost:8080/callback");
     }
 
     static class CallbackHandler implements HttpHandler {
         private final HhAuthManager manager;
+        private final HttpServer server;
+        private final Runnable onSuccess;
 
-        public CallbackHandler(HhAuthManager manager) {
+        public CallbackHandler(HhAuthManager manager, HttpServer server, Runnable onSuccess) {
             this.manager = manager;
+            this.server = server;
+            this.onSuccess = onSuccess;
         }
 
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            String query = exchange.getRequestURI().getQuery(); // code=...
-            Map<String, String> params = parseQuery(query);
-            String code = params.get("code");
+            URI requestURI = exchange.getRequestURI();
+            String query = requestURI.getQuery();
+            if (query != null && query.contains("code=")) {
+                String code = query.split("code=")[1];
+                manager.exchangeCodeForToken(code);
+                onSuccess.run(); // <-- запуск контроллера
+            }
 
             String response = "✅ Авторизация прошла успешно. Можете закрыть окно.";
             exchange.sendResponseHeaders(200, response.getBytes().length);
-            OutputStream os = exchange.getResponseBody();
-            os.write(response.getBytes());
-            os.close();
-
-            if (code != null) {
-                System.out.println(" Получен code: " + code);
-                manager.exchangeCodeForToken(code);
-            } else {
-                System.out.println("⚠️ Code не найден в callback.");
+            try (OutputStream os = exchange.getResponseBody()) {
+                os.write(response.getBytes());
             }
-        }
 
-        private Map<String, String> parseQuery(String query) {
-            return query == null ? Map.of() :
-                java.util.Arrays.stream(query.split("&"))
-                    .map(s -> s.split("=", 2))
-                    .collect(Collectors.toMap(
-                        s -> s[0],
-                        s -> s.length > 1 ? s[1] : ""
-                    ));
+            server.stop(0);
         }
     }
 }

@@ -1,2 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TextArea fx:id="resumeTextArea" layoutX="20" layoutY="20" prefWidth="800" prefHeight="400" />
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.jobassistant.ui.controller.ResumeController"
+      spacing="20" alignment="TOP_CENTER" style="-fx-padding: 20;">
+    <Label text="Моё резюме" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <Label fx:id="resumeTitle" style="-fx-font-size: 18px;"/>
+    <Label fx:id="resumeUpdated"/>
+    <HBox spacing="10">
+        <Label fx:id="viewsLabel"/>
+        <Label fx:id="responsesLabel"/>
+        <Label fx:id="invitesLabel"/>
+    </HBox>
+    <FlowPane fx:id="skillsPane" hgap="10" vgap="10"/>
+    <HBox spacing="15">
+        <Button text="Поднять в поиске"/>
+        <Button text="Редактировать"/>
+        <Button text="Удалить" style="-fx-text-fill: red;"/>
+    </HBox>
+</VBox>

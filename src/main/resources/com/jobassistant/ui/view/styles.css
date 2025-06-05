@@ -1,0 +1,80 @@
+.root {
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.header {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 0 10 20;
+}
+
+.card {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 10;
+    -fx-padding: 15;
+    -fx-background-radius: 10;
+    -fx-spacing: 10;
+}
+
+.button {
+    -fx-background-color: #0041c4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 6 12;
+    -fx-background-radius: 5;
+}
+.topbar {
+    -fx-padding: 0 30 0 30;
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111;
+}
+
+.resume-card {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 20;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0.3, 0, 2);
+    -fx-min-width: 600px;
+}
+
+.resume-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+.top-bar {
+    -fx-background-color: #1f1f1f;
+    -fx-padding: 0 30 0 30;
+    -fx-pref-height: 60;
+}
+
+.logo-label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.hh-button-primary {
+    -fx-background-color: #3e3eff;
+    -fx-text-fill: white;
+    -fx-padding: 8 16;
+    -fx-background-radius: 6;
+}
+
+.resume-card {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 2);
+}

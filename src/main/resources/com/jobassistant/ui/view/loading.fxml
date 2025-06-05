@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.ProgressIndicator?>
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.jobassistant.ui.controller.LoadingController">
+    <VBox alignment="CENTER" spacing="20">
+        <ProgressIndicator progress="-1.0" />
+        <Label text="Авторизация через hh.ru..." styleClass="header"/>
+    </VBox>
+</StackPane>

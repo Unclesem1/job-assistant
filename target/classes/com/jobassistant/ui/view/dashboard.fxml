@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.jobassistant.ui.controller.DashboardController"
+            stylesheets="@styles.css">
+
+    <!-- Верхняя панель (чёрный хедер) -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="top-bar">
+            <ImageView fitHeight="32" fitWidth="32">
+                <image>
+                    <Image url="@/com/jobassistant/ui/img/hh_logo_white.png" />
+                </image>
+            </ImageView>
+            <Label text="Мои резюме" styleClass="logo-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Создать резюме" styleClass="hh-button-primary"/>
+        </HBox>
+    </top>
+
+    <!-- Центральная часть с карточками -->
+    <center>
+        <VBox spacing="30" alignment="TOP_CENTER" style="-fx-padding: 40;">
+            <Label text="Мои резюме" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+            <HBox spacing="30" alignment="CENTER">
+                <!-- Карточка 1 -->
+                <VBox spacing="10" styleClass="resume-card">
+                    <Label text="Системный аналитик" style="-fx-font-weight: bold;" />
+                    <Label text="Просмотров: 458" />
+                    <Button text="Поднять в поиске" styleClass="hh-button-primary" />
+                </VBox>
+
+                <!-- Карточка 2 -->
+                <VBox spacing="10" styleClass="resume-card">
+                    <Label text="Резюме на hh.ru" style="-fx-font-weight: bold;" />
+                    <Button text="Редактировать" style="-fx-background-color: transparent; -fx-border-color: #3e3eff; -fx-text-fill: #3e3eff;" />
+                    <Button text="Удалить" style="-fx-background-color: transparent; -fx-border-color: red; -fx-text-fill: red;" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

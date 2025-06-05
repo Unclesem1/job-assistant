@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<AnchorPane fx:controller="com.jobassistant.ui.controller.LoginController"
+            xmlns:fx="http://javafx.com/fxml" prefWidth="600" prefHeight="400">
+    <children>
+        <VBox layoutX="100" layoutY="100" spacing="15" alignment="CENTER">
+            <Label text="Вход в HH.ru" styleClass="header"/>
+            <TextField fx:id="phoneField" promptText="Номер телефона"/>
+            <PasswordField fx:id="codeField" promptText="Код из СМС"/>
+            <Button fx:id="loginButton" text="Войти"/>
+        </VBox>
+    </children>
+</AnchorPane>

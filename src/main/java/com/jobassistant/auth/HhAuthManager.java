@@ -8,8 +8,8 @@ import java.net.URLEncoder;
 import org.json.JSONObject;
 
 public class HhAuthManager {
-    private static final String CLIENT_ID = "ВАШ_CLIENT_ID";
-    private static final String CLIENT_SECRET = "ВАШ_CLIENT_SECRET";
+    private static final String CLIENT_ID = "KA2013FOJ7UU70FP53UQGLSCFU2O1367EHU6R5NU7LIEDM3JRH04UBNAFGQTJVU1";
+    private static final String CLIENT_SECRET = "U7FK881IHG474ABK882QD8GK2CHA47TEO07P3RAMBUR74CCPFO3F2GDO7IH9J3RD";
     private static final String REDIRECT_URI = "http://localhost:8080/callback";
 
     private static String accessToken = null;

@@ -1,1 +1,6 @@
+Main.class
+frontend\controller\LoginController.class
+backend\hh\CallbackServer.class
+backend\hh\HhAuthManager.class
 com\jobassistant\MainApp.class
+backend\hh\CallbackServer$CallbackHandler.class

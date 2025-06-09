@@ -34,16 +34,4 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        // Очистка порта 8080
-        try {
-            echo "��� Освобождаем порт 8080..."
-            fuser -k 8080/tcp > /dev/null 2>&1 || true
-        } catch {
-            echo "⚠ Не удалось освободить порт — продолжим."
-        }
-
-        launch(args);
-    }
 }

@@ -1,10 +1,12 @@
 com\jobassistant\Main.class
 com\jobassistant\auth\CallbackServer$CallbackHandler.class
+com\jobassistant\service\ResumeService.class
 com\jobassistant\ui\controller\ResumeController.class
 com\jobassistant\auth\CallbackServer.class
 com\jobassistant\ui\controller\StatsController.class
 com\jobassistant\ui\controller\DashboardController.class
 com\jobassistant\HhAuthManager.class
+com\jobassistant\ResumeInfo.class
 com\jobassistant\ui\controller\LoginController.class
 com\jobassistant\ui\controller\RootController.class
 com\jobassistant\ui\controller\LoadingController.class

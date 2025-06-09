@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="frontend.controller.LoginController">
+    <children>
+        <Label text="Авторизация через HeadHunter" layoutX="20" layoutY="20"/>
+        <Button text="Войти" fx:id="loginButton" layoutX="20" layoutY="60"/>
+        <Label fx:id="errorLabel" layoutX="20" layoutY="100" textFill="red"/>
+    </children>
+</AnchorPane>
